@@ -1,45 +1,40 @@
-
 #include <stdio.h>
 
 int main() {
     int n1, n2, i, j, k = 0;
-    int tab1[100], tab2[100], intersection[100];
+    int a[100], b[100], c[100];
 
-    // Lecture de la taille et des éléments du premier tableau
     scanf("%d", &n1);
     for(i = 0; i < n1; i++) {
-        scanf("%d", &tab1[i]);
+        scanf("%d", &a[i]);
     }
 
-    // Lecture de la taille et des éléments du deuxième tableau
     scanf("%d", &n2);
     for(i = 0; i < n2; i++) {
-        scanf("%d", &tab2[i]);
+        scanf("%d", &b[i]);
     }
 
-    // Calcul de l'intersection sans doublons
     for(i = 0; i < n1; i++) {
         for(j = 0; j < n2; j++) {
-            if(tab1[i] == tab2[j]) {
-                // Vérifier si déjà présent
-                int deja_present = 0;
-                for(int m = 0; m < k; m++) {
-                    if(intersection[m] == tab1[i]) {
-                        deja_present = 1;
+            if(a[i] == b[j]) {
+                int exists = 0;
+                for(int x = 0; x < k; x++) {
+                    if(c[x] == a[i]) {
+                        exists = 1;
                         break;
                     }
                 }
-                if(!deja_present) {
-                    intersection[k++] = tab1[i];
+                if(!exists) {
+                    c[k++] = a[i];
                 }
+                break;
             }
         }
     }
 
-    // Affichage sans espace final
     printf("Intersection :");
     for(i = 0; i < k; i++) {
-        printf(" %d", intersection[i]);
+        printf(" %d", c[i]);
     }
     printf("\n");
 
