@@ -4,35 +4,41 @@ int main() {
     int n1, n2, i, j, k = 0;
     int tab1[100], tab2[100], intersection[100];
 
-    // Lecture du premier tableau
-    scanf("%d", &n1);
-    for(i = 0; i < n1; i++) scanf("%d", &tab1[i]);
+    scanf("%d", &n1);  // Lire le nombre d’éléments du premier tableau
+    for(i = 0; i < n1; i++) {
+        scanf("%d", &tab1[i]);  // Remplir le premier tableau
+    }
 
-    // Lecture du deuxième tableau
-    scanf("%d", &n2);
-    for(i = 0; i < n2; i++) scanf("%d", &tab2[i]);
+    scanf("%d", &n2);  // Lire le nombre d’éléments du deuxième tableau
+    for(i = 0; i < n2; i++) {
+        scanf("%d", &tab2[i]);  // Remplir le deuxième tableau
+    }
 
-    // Recherche des éléments communs entre tab1 et tab2
+    // Chercher les éléments communs aux deux tableaux
     for(i = 0; i < n1; i++) {
         for(j = 0; j < n2; j++) {
             if(tab1[i] == tab2[j]) {
-                // Vérifie si l'élément n'est pas déjà dans l'intersection
-                int existe = 0;
+                // Vérifier que l’élément n’a pas déjà été ajouté à l’intersection
+                int deja_present = 0;
                 for(int m = 0; m < k; m++) {
                     if(intersection[m] == tab1[i]) {
-                        existe = 1;
+                        deja_present = 1;
                         break;
                     }
                 }
-                // Ajoute l'élément s'il est unique dans l'intersection
-                if(!existe) intersection[k++] = tab1[i];
+                // Ajouter l’élément s’il n’est pas encore présent
+                if(!deja_present) {
+                    intersection[k++] = tab1[i];
+                }
             }
         }
     }
 
-    // Affichage du résultat
+    // Afficher les éléments de l’intersection
     printf("Intersection : ");
-    for(i = 0; i < k; i++) printf("%d ", intersection[i]);
+    for(i = 0; i < k; i++) {
+        printf("%d ", intersection[i]);
+    }
     printf("\n");
 
     return 0;
