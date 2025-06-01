@@ -1,20 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, temp, t[100];
+    int n, i, temp;
+    int tableau[100];  // Déclaration du tableau avec taille maximale 100
 
-    scanf("%d", &n);               // Lire la taille du tableau
-    for(i = 0; i < n; i++)
-        scanf("%d", &t[i]);        // Lire les éléments
+    scanf("%d", &n);  // Lecture de la taille du tableau
 
-    temp = t[0];                   // Sauvegarder le premier élément
-    for(i = 0; i < n - 1; i++)
-        t[i] = t[i + 1];           // Décaler à gauche
+    for(i = 0; i < n; i++) {
+        scanf("%d", &tableau[i]);  // Lecture des éléments du tableau
+    }
 
-    t[n - 1] = temp;               // Placer le 1er à la fin
+    temp = tableau[0];  // Stocke le premier élément à déplacer à la fin
 
-    for(i = 0; i < n; i++)
-        printf("%d ", t[i]);       // Afficher le tableau
+    for(i = 0; i < n - 1; i++) {
+        tableau[i] = tableau[i + 1];  // Décalage à gauche des éléments
+    }
+
+    tableau[n - 1] = temp;  // Place l’ancien premier élément à la fin
+
+    printf("Tableau après rotation : ");
+    for(i = 0; i < n; i++) {
+        printf("%d ", tableau[i]);  // Affiche le tableau après rotation
+    }
 
     return 0;
 }
