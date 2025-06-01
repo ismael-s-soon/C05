@@ -1,33 +1,29 @@
 #include <stdio.h>
 
 int main() {
-    int n1, n2, i;
-    int t1[100], t2[100], fusion[200];  // Déclaration des tableaux
+    int n1, n2, i, t1[100], t2[100], fusion[200];
 
-    scanf("%d", &n1);  // Lecture de la taille du premier tableau
-    for(i = 0; i < n1; i++) {
-        scanf("%d", &t1[i]);  // Lecture des éléments du premier tableau
-    }
+    // Lecture de la taille et des éléments du premier tableau
+    scanf("%d", &n1);
+    for(i = 0; i < n1; i++) 
+        scanf("%d", &t1[i]);
 
-    scanf("%d", &n2);  // Lecture de la taille du deuxième tableau
-    for(i = 0; i < n2; i++) {
-        scanf("%d", &t2[i]);  // Lecture des éléments du deuxième tableau
-    }
+    // Lecture de la taille et des éléments du deuxième tableau
+    scanf("%d", &n2);
+    for(i = 0; i < n2; i++) 
+        scanf("%d", &t2[i]);
 
-    // Copie du premier tableau dans fusion
-    for(i = 0; i < n1; i++) {
+    // Copie des éléments de t1 dans fusion
+    for(i = 0; i < n1; i++) 
         fusion[i] = t1[i];
-    }
 
-    // Copie du second tableau dans fusion à la suite
-    for(i = 0; i < n2; i++) {
+    // Copie des éléments de t2 à la suite dans fusion
+    for(i = 0; i < n2; i++) 
         fusion[n1 + i] = t2[i];
-    }
 
-    printf("Tableau fusionné : ");
-    for(i = 0; i < n1 + n2; i++) {
-        printf("%d ", fusion[i]);  // Affichage du tableau fusionné
-    }
+    // Affichage du tableau fusionné
+    for(i = 0; i < n1 + n2; i++) 
+        printf("%d ", fusion[i]);
 
     return 0;
 }
